@@ -1,0 +1,68 @@
+<!--
+@license
+Copyright (c) 2015 Dean Wagner (wagner@nmb.gov). All rights reserved.
+-->
+
+<dom-module id="aws-home">
+    <style>
+      :host {
+        height: 100%;
+        width: 100%;
+        /*background-color: red;*/
+      }
+      #logo {
+        margin: 10%;
+        width: 80%;
+        max-width: 500px;
+        height: auto;
+      }
+      #warning {
+        margin: 0 10%;
+        width: 80%;
+        max-width: 300px;
+        background-color: #cccccc;
+        padding: 10px;
+      }
+    </style>
+    
+  <template>
+    <paper-dialog id="helpDialog">
+      <h2>AWS Home Page</h2>
+      <paper-dialog-scrollable>
+        <ul>
+          <li>make a selection from the menu on the left</li>
+          <li>if it is hidden, click on the "menu" icon (looks like a hamburger)</li>
+        </ul>
+      </paper-dialog-scrollable>
+      <div class="buttons">
+        <paper-button dialog-dismiss>Close</paper-button>
+      </div>
+    </paper-dialog>
+    
+    <img id="logo" src="../img/NMBlogo.jpg" width="300px" height="300px">
+    <div id="warning">
+      This site is provided for the exclusive use of National Mediation Board Personnel.  All other users should close this page immediately.
+    </div>
+  </template>
+</dom-module>
+
+  <script>
+  (function() {
+    Polymer({
+      is: 'aws-home',
+
+      helpMe: function () {
+        this.$.helpDialog.open();
+      },
+      shutDown: function () {
+        console.log("shutDown aws-home");
+      },
+      setUp: function () {
+        console.log("setUp aws-home");
+        this.fire('setapptitle', {title: "AWS Home Page"});
+      }
+
+      
+    });
+    })();
+  </script>
