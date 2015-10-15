@@ -39,16 +39,15 @@ Copyright (c) 2015 Dean Wagner (wagner@nmb.gov). All rights reserved.
     </style>
     
   <template>
-    <paper-dialog id="helpDialog">
-      <h2>AWS Home Page</h2>
+    <paper-dialog id="helpDialog" modal>
+      <h2>Title U.S. Code 287</h2>
       <paper-dialog-scrollable>
-        <ul>
-          <li>make a selection from the menu on the left</li>
-          <li>if it is hidden, click on the "menu" icon (looks like a hamburger)</li>
-        </ul>
+        <div>
+          False, Fictitious or Fraudulent Claims:  Whoever makes or presents to any person or officer in the civil, military, or naval service of the United States, or to any department or agency thereof, any claim upon or against the United States or any department or agency thereof, knowing such claims to be false, fictitious or fraudulent, shall be fined not more that $10,000 or imprisoned not more that five years or both.  June 25, 1948, C., 645, 62 State. 698 (Title U.S. Code 287).
+        </div>
       </paper-dialog-scrollable>
       <div class="buttons">
-        <paper-button dialog-dismiss>Close</paper-button>
+        <paper-button dialog-dismiss>I Understand</paper-button>
       </div>
     </paper-dialog>
     <div id="warning">
@@ -81,6 +80,10 @@ Copyright (c) 2015 Dean Wagner (wagner@nmb.gov). All rights reserved.
       setUp: function () {
         console.log("setUp aws-home");
         this.fire('setapptitle', {title: "AWS Home Page"});
+      },
+
+      ready: function () {
+        this.$.helpDialog.open();
       }
 
       
